@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" type="image/x-icon" href="uk.png" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>English Learning</title>
+</head>
+<body>
+    <div id="menuToggle" onclick="toggleSlidingMenu()">☰ Menu</div>
+    <div id="slidingMenu">
+        <ul id="menuLinks">
+            <li><a href="#" onclick="showSubMenu('First')" data-text="Twenty-three_1-3_Chapter">Twenty-three_1-3_Chapter</a></li>
+            <li><a href="#" onclick="showSubMenu('Eleven')" data-text="11_Pioneer_intermediate">11_Pioneer_intermediate</a></li>
+            <li><a href="#" onclick="showSubMenu('Ten')" data-text="10_Pioneer_pre_intermediate">10_Pioneer_pre_intermediate</a></li>
+        </ul>
+
+        <!-- Submenus -->
+        <ul id="FirstSubmenu" class="submenu">
+            <li><a href="#" data-text="Home_1-10" onclick="selectDictionary('https://raw.githubusercontent.com/WattoX00/Eng_learning/main/dictionaries/Twenty-three_Topics_For_Teenagers/home_1-10.txt')">Home_1-10</a></li>
+            <li><a href="#" data-text="Home_11-31" onclick="selectDictionary('https://raw.githubusercontent.com/WattoX00/Eng_learning/main/dictionaries/Twenty-three_Topics_For_Teenagers/home_11-31.txt')">Home_11-31</a></li>
+            <li><a href="#" data-text="Home_32-43" onclick="selectDictionary('https://raw.githubusercontent.com/WattoX00/Eng_learning/main/dictionaries/Twenty-three_Topics_For_Teenagers/home_32-43.txt')">Home_32-43</a></li>
+            <li><a href="#" data-text="Home_43-54" onclick="selectDictionary('https://raw.githubusercontent.com/WattoX00/Eng_learning/main/dictionaries/Twenty-three_Topics_For_Teenagers/home_43-54.txt')">Home_43-54</a></li>
+        </ul>
+
+        <ul id="ElevenSubmenu" class="submenu">
+            <li><a href="#" data-text="1.a" onclick="selectDictionary('https://raw.githubusercontent.com/WattoX00/Eng_learning/main/dictionaries/11_Pioneer_intermediate/1a.txt')">1.a</a></li>
+            <li><a href="#" data-text="1.b" onclick="selectDictionary('https://raw.githubusercontent.com/WattoX00/Eng_learning/main/dictionaries/11_Pioneer_intermediate/1b.txt')">1.b</a></li>
+        </ul>
+
+        <ul id="TenSubmenu" class="submenu">
+            <li><a href="#" data-text="8.a" onclick="selectDictionary('https://raw.githubusercontent.com/WattoX00/Eng_learning/main/dictionaries/10_Pioneer_pre_intermediate/8a.txt')">8.a</a></li>
+            <li><a href="#" data-text="8.b" onclick="selectDictionary('https://raw.githubusercontent.com/WattoX00/Eng_learning/main/dictionaries/10_Pioneer_pre_intermediate/8b.txt')">8.b</a></li>
+        </ul>
+    
+        <a href="https://github.com/WattoX00/Eng_learning" class="credit" target="_blank" data-text="Github Repo" >Github Repo</a>
+    </div>
+    <header>
+        <div id="wordCounter"></div>
+        <div id="timer"></div>
+    </header>
+    <div id="outputContainer">
+        <h3 id="previousWords"></h3>
+        <div id="output"></div>
+        <input type="text" id="userInput" placeholder="Enter your input" onkeydown="checkEnter()">
+        <a href="#" id="showResultLink" onclick="displayStoredWords()">Check Your Result</a>
+    </div>
+
+    <div id="footerContainer">
+        <div class="footer-section">
+            <p>Every Right Reserved &copy; 2024</p>
+        </div>
+        <div class="footer-section">
+            <p>Support Me:</p>
+            <p><a href="https://www.paypal.com/paypalme/wattox" target="_blank">PayPal</a></p>
+        </div>
+    </div>
+    <div id="footerArrow">&#x25BC;</div>
+    <script src="script.js"></script>
+</body>
+</html>
