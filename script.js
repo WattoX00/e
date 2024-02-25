@@ -263,7 +263,6 @@ function displayStoredWords() {
     }
 }
 function showSubMenu(menu) {
-    console.log(`Showing submenu for ${menu}`);
     const nonSelectedMenus = document.querySelectorAll('.submenu:not(#' + menu + 'Submenu)');
     nonSelectedMenus.forEach(menu => {
         menu.classList.add('hidden-menu');
@@ -295,7 +294,6 @@ function selectDictionary(dictionaryUrl) {
 }
 
 function hideAllSubmenus() {
-    console.log('Hiding all submenus');
     const allSubmenus = document.querySelectorAll('.submenu');
     allSubmenus.forEach(submenu => {
         submenu.classList.remove('show');
