@@ -36,13 +36,6 @@ document.addEventListener('DOMContentLoaded', function () {
             return `<div class="${word.isCorrect ? 'correct' : 'incorrect'}">${word.hun} - ${word.eng}</div>`;
         }).join('');
 
-        const resultWindow = window.open('', '_blank');
-        resultWindow.document.body.innerHTML = `
-            <h1>Results</h1>
-            <div>Correct Count: ${correctCount}\nTotal Words: ${currentLineIndex}\nAccuracy: ${accuracyPercentage}%</div>
-            <div id="resultContainer">${resultsHTML}</div>
-        `;
-
         localStorage.removeItem('storedWords');
     }
 
