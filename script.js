@@ -1,3 +1,8 @@
+/* English Learning App
+
+    Author: WattoX00
+    Date:   25/02/2024
+*/
 document.addEventListener('DOMContentLoaded', function () {
     const resultLink = document.getElementById('showResultLink');
     resultLink.addEventListener('click', function (event) {
@@ -61,10 +66,20 @@ function loadDictionary(dictionaryUrl) {
             startTime = new Date().getTime();
             timerInterval = setInterval(updateTimer, 1000);
 
+            const welcomeMessage = document.getElementById('welcomeMessage');
+            welcomeMessage.style.display = 'none';
             const userInput = document.getElementById('userInput');
+        const outputContainer = document.getElementById('outputContainer');
+        const showResultLink = document.getElementById('showResultLink');
+        const wordCounter = document.getElementById('wordCounter');
+        const timer = document.getElementById('timer');
+            outputContainer.style.display = 'block';
             userInput.style.display = 'block';
+            showResultLink.style.display = 'none';
+            wordCounter.style.display = 'block'
+            timer.style.display = 'block';
         })
-        .catch(error => console.error('Error loading dictionary:', error));
+        .catch(error => console.error('Error loading dictionary:', error));toggleSlidingMenu()
 }
 
 function updateTimer() {
@@ -94,6 +109,7 @@ function readFile() {
         };
         reader.readAsText(file);
     }
+
 }
 
         function shuffleArray(array) {
@@ -134,7 +150,7 @@ function readFile() {
             return document.getElementById('userInput').value.toLowerCase() === expectedTranslation.toLowerCase();
         }
 
-        function processNextLine() {
+function processNextLine() {
     const userInput = document.getElementById('userInput').value;
     const currentLine = lines[currentLineIndex];
 
@@ -163,8 +179,8 @@ function readFile() {
             if (currentLineIndex === lines.length) {
                 clearInterval(timerInterval);
                 updateTimer();    
-                const resultLink = document.getElementById('showResultLink');
-                resultLink.classList.add('unhidden');
+                const showResultLink = document.getElementById('showResultLink');
+                showResultLink.style.display = 'block'
                 lines = [];
                 currentLineIndexStorage = currentLineIndex;
                 correctCountStorage = correctCount;
@@ -229,15 +245,22 @@ function displayStoredWords() {
         </div>
         <div id="resultContainer">${resultsHTML}</div>
     `;
-
     localStorage.removeItem('storedWords');
+    const userInput = document.getElementById('userInput');
+    const outputContainer = document.getElementById('outputContainer');
+    const wordCounter = document.getElementById('wordCounter');
+    const timer = document.getElementById('timer');
+        outputContainer.style.display = 'none';
+        userInput.style.display = 'none';
+        wordCounter.style.display = 'none'
+        timer.style.display = 'none';
 }
         function checkEnter() {
             if (event.key === 'Enter') {
                 processNextLine();
             }
         }
-        function toggleSlidingMenu() {
+function toggleSlidingMenu() {
     const slidingMenu = document.getElementById('slidingMenu');
     const menuToggle = document.getElementById('menuToggle');
     const menuLinks = document.getElementById('menuLinks');
@@ -251,6 +274,10 @@ function displayStoredWords() {
             link.classList.remove('hidden-menu');
         });
     } else {
+        const allSubmenus = document.querySelectorAll('.submenu');
+    allSubmenus.forEach(submenu => {
+        submenu.classList.remove('show')
+    });
         slidingMenu.style.left = "0px";
         menuToggle.innerHTML = "✕ Close";
     }
@@ -296,5 +323,4 @@ function hideAllSubmenus() {
     allMenuLinks.forEach(link => {
         link.classList.remove('hidden-menu');
     });
-    toggleSlidingMenu()
 }

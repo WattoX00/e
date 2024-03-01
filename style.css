@@ -1,3 +1,9 @@
+/* 
+    English Learning App
+
+    Author: WattoX00
+    Date:   25/02/2024
+*/
 body {
     display: grid;
     grid-template-rows: 1fr 3fr;
@@ -22,7 +28,11 @@ header {
     position: relative;
     border-bottom: 3px solid #fff;
 }
-
+#welcomeMessage {
+    font-size: 2vw;
+    text-align: center;
+    margin: 0 auto;
+}
 #footerContainer {
     bottom: 0;
     left: 0;
@@ -122,10 +132,6 @@ header {
 #showResultLink:hover {
     background-color: #fff;
     color: #000;
-}
-
-#showResultLink.unhidden {
-    display: block;
 }
 
 .correct {
@@ -258,7 +264,12 @@ a:hover::before {
         text-align: center;
         margin: 0 10px;
     }
-
+    #welcomeMessage {
+    padding-top: 4 0px;
+    font-size: 4vw;
+    text-align: center;
+    margin: 0 auto;
+}
     body:hover #footerContainer {
         display: block;
     }
@@ -309,14 +320,17 @@ a:hover::before {
 }
 
 @media only screen and (min-width: 2560px) {
+    #menuToggle {
+        padding: 5%;
+        font-size: 2vw;
+    }
+    #showResultLink {
+        padding: 5%;
+        font-size: 2vw;
+    }
     #menuLinks {
-        margin: 25px 0;
+        margin: 40% 0;
     }
-
-    .submenu {
-        margin-top: 15px;
-    }
-
     #footerContainer {
         padding: 40px;
     }
