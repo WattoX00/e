@@ -19,20 +19,20 @@
      <div id="menuToggle" onclick="toggleSlidingMenu()">☰ Menu</div>
      <div id="slidingMenu">
          <ul id="menuLinks">
-             <li><a href="#" onclick="showSubMenu('First')" data-text="Twenty-three_1._Chapter">Twenty-three_1._Chapter</a></li>
+             <li><a href="#" onclick="showSubMenu('First')" data-text="Twenty-three_1_Chapter">Twenty-three_1_Chapter</a></li>
              <li><a href="#" onclick="showSubMenu('Eleven')" data-text="11_Pioneer_intermediate">11_Pioneer_intermediate</a></li>
-             <li><a href="#" onclick="showSubMenu('Ten')" data-text="Twenty-three_2._Chapter">Twenty-three_2._Chapter</a></li>
+             <li><a href="#" onclick="showSubMenu('Ten')" data-text="Twenty-three_2_Chapter">Twenty-three_2_Chapter</a></li>
          </ul>
  
          <!-- Submenus -->
-         <ul class="submenu">
+         <ul id="FirstSubmenu" class="submenu">
              <li><a href="#" data-text="Home_1-10" onclick="selectDictionary('https://raw.githubusercontent.com/WattoX00/Eng_learning/main/dictionaries/Twenty-three_Topics_For_Teenagers/home_1-10.txt')">Home_1-10</a></li>
              <li><a href="#" data-text="Home_11-31" onclick="selectDictionary('https://raw.githubusercontent.com/WattoX00/Eng_learning/main/dictionaries/Twenty-three_Topics_For_Teenagers/home_11-31.txt')">Home_11-31</a></li>
              <li><a href="#" data-text="Home_32-43" onclick="selectDictionary('https://raw.githubusercontent.com/WattoX00/Eng_learning/main/dictionaries/Twenty-three_Topics_For_Teenagers/home_32-43.txt')">Home_32-43</a></li>
              <li><a href="#" data-text="Home_43-54" onclick="selectDictionary('https://raw.githubusercontent.com/WattoX00/Eng_learning/main/dictionaries/Twenty-three_Topics_For_Teenagers/home_43-54.txt')">Home_43-54</a></li>
          </ul>
  
-         <ul class="submenu">
+         <ul id="ElevenSubmenu" class="submenu">
              <li><a href="#" data-text="1.a" onclick="selectDictionary('https://raw.githubusercontent.com/WattoX00/Eng_learning/main/dictionaries/11_Pioneer_intermediate/1a.txt')">1.a</a></li>
              <li><a href="#" data-text="1.b" onclick="selectDictionary('https://raw.githubusercontent.com/WattoX00/Eng_learning/main/dictionaries/11_Pioneer_intermediate/1b.txt')">1.b</a></li>
              <li><a href="#" data-text="2.a_1" onclick="selectDictionary('https://raw.githubusercontent.com/WattoX00/Eng_learning/main/dictionaries/11_Pioneer_intermediate/2a_1.txt')">2.a_1</a></li>
@@ -40,7 +40,7 @@
              <li><a href="#" data-text="2.b" onclick="selectDictionary('https://raw.githubusercontent.com/WattoX00/Eng_learning/main/dictionaries/11_Pioneer_intermediate/2b.txt')">2.b</a></li>
          </ul>
  
-         <ul class="submenu">
+         <ul id="TenSubmenu" class="submenu">
              <li><a href="#" data-text="Weather_1" onclick="selectDictionary('https://raw.githubusercontent.com/WattoX00/Eng_learning/main/dictionaries/Twenty-three_Topics_For_Teenagers/weather_1.txt')">Weather_1</a></li>
              <li><a href="#" data-text="Weather_2" onclick="selectDictionary('https://raw.githubusercontent.com/WattoX00/Eng_learning/main/dictionaries/Twenty-three_Topics_For_Teenagers/weather_2.txt')">Weather_2</a></li>
          </ul>
