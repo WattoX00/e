@@ -69,10 +69,10 @@ function loadDictionary(dictionaryUrl) {
             const welcomeMessage = document.getElementById('welcomeMessage');
             welcomeMessage.style.display = 'none';
             const userInput = document.getElementById('userInput');
-        const outputContainer = document.getElementById('outputContainer');
-        const showResultLink = document.getElementById('showResultLink');
-        const wordCounter = document.getElementById('wordCounter');
-        const timer = document.getElementById('timer');
+            const outputContainer = document.getElementById('outputContainer');
+            const showResultLink = document.getElementById('showResultLink');
+            const wordCounter = document.getElementById('wordCounter');
+            const timer = document.getElementById('timer');
             outputContainer.style.display = 'block';
             userInput.style.display = 'block';
             showResultLink.style.display = 'none';
@@ -133,7 +133,7 @@ function readFile() {
             } else {
                 previousWordsDiv.classList.add('incorrect');
             }
-            document.getElementById('wordCounter').textContent = `${currentLineIndex + 1}/${correctCount}`;
+            document.getElementById('wordCounter').textContent = `${currentLineIndex}/${correctCount}`;
         }
 
         function formatPreviousWords(line) {
@@ -180,12 +180,15 @@ function processNextLine() {
                 clearInterval(timerInterval);
                 updateTimer();    
                 const showResultLink = document.getElementById('showResultLink');
-                showResultLink.style.display = 'block'
+                showResultLink.style.display = 'block';
                 lines = [];
                 currentLineIndexStorage = currentLineIndex;
                 correctCountStorage = correctCount;
                 currentLineIndex = 0;
                 correctCount = 0;
+                const userInput = document.getElementById('userInput');
+                userInput.style.display = 'none';
+                document.getElementById('userInput').value = '';
             }
         }
     }
@@ -250,10 +253,10 @@ function displayStoredWords() {
     const outputContainer = document.getElementById('outputContainer');
     const wordCounter = document.getElementById('wordCounter');
     const timer = document.getElementById('timer');
-        outputContainer.style.display = 'none';
-        userInput.style.display = 'none';
-        wordCounter.style.display = 'none'
-        timer.style.display = 'none';
+    outputContainer.style.display = 'none';
+    userInput.style.display = 'none';
+    wordCounter.style.display = 'none'
+    timer.style.display = 'none';
 }
         function checkEnter() {
             if (event.key === 'Enter') {
@@ -286,10 +289,6 @@ function showSubMenu(menu) {
     const nonSelectedMenus = document.querySelectorAll('.submenu:not(#' + menu + 'Submenu)');
     nonSelectedMenus.forEach(menu => {
         menu.classList.add('hidden-menu');
-        const allMenuLinks = document.querySelectorAll('#menuLinks li');
-        allMenuLinks.forEach(link => {
-            link.classList.remove('hidden-menu');
-        });
     });
 
     const selectedSubmenu = document.getElementById(`${menu}Submenu`);
@@ -297,20 +296,21 @@ function showSubMenu(menu) {
 
     const menuLinks = document.getElementById('menuLinks');
     const selectedMenuItem = document.querySelector(`#menuLinks li a[href="#"][onclick*="${menu}"]`);
-    menuLinks.insertBefore(selectedMenuItem.parentElement, menuLinks.firstChild);
 
-    const menuLinksVisibility = isSubmenuVisible ? 'hidden-menu' : '';
-    const allMenuLinks = document.querySelectorAll('#menuLinks li');
-    allMenuLinks.forEach(link => {
-        if (link !== selectedMenuItem.parentElement) {
-            link.classList.toggle(menuLinksVisibility, true);
-        }
-    });
-}
-
-function selectDictionary(dictionaryUrl) {
-    hideAllSubmenus();
-    loadDictionary(dictionaryUrl);
+    if (isSubmenuVisible) {
+        menuLinks.insertBefore(selectedMenuItem.parentElement, menuLinks.firstChild);
+        const allMenuLinks = document.querySelectorAll('#menuLinks li');
+        allMenuLinks.forEach(link => {
+            if (link !== selectedMenuItem.parentElement) {
+                link.classList.add('hidden-menu');
+            }
+        });
+    } else {
+        const allMenuLinks = document.querySelectorAll('#menuLinks li');
+        allMenuLinks.forEach(link => {
+            link.classList.remove('hidden-menu');
+        });
+    }
 }
 
 function hideAllSubmenus() {
@@ -323,4 +323,10 @@ function hideAllSubmenus() {
     allMenuLinks.forEach(link => {
         link.classList.remove('hidden-menu');
     });
+}
+
+
+function selectDictionary(dictionaryUrl) {
+    hideAllSubmenus();
+    loadDictionary(dictionaryUrl);
 }
