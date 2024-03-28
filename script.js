@@ -11,19 +11,14 @@ document.addEventListener('DOMContentLoaded', function () {
     });
     const footerContainer = document.getElementById('footerContainer');
     const footerArrow = document.getElementById('footerArrow');
-    let isFooterVisible = false;
+    let isFooterVisible = true;
 
-    footerArrow.addEventListener('click', function () {
+    footerArrow.addEventListener('mouseenter', function () {
         isFooterVisible = !isFooterVisible;
         toggleFooterVisibility();
     });
 
-    footerContainer.addEventListener('mouseenter', function () {
-        isFooterVisible = true;
-        toggleFooterVisibility();
-    });
-
-    footerContainer.addEventListener('mouseleave', function () {
+    footerContainer.addEventListener('click', function () {
         isFooterVisible = false;
         toggleFooterVisibility();
     });
@@ -43,7 +38,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         localStorage.removeItem('storedWords');
     }
-
 
 });
     let lines;
@@ -73,11 +67,15 @@ function loadDictionary(dictionaryUrl) {
             const showResultLink = document.getElementById('showResultLink');
             const wordCounter = document.getElementById('wordCounter');
             const timer = document.getElementById('timer');
+            const output = document.getElementById('output');
+            const previousWords = document.getElementById('previousWords');
             outputContainer.style.display = 'block';
             userInput.style.display = 'block';
             showResultLink.style.display = 'none';
             wordCounter.style.display = 'block'
             timer.style.display = 'block';
+            output.style.display = 'block'
+            previousWords.style.display = 'block';
         })
         .catch(error => console.error('Error loading dictionary:', error));toggleSlidingMenu()
 }
@@ -187,7 +185,11 @@ function processNextLine() {
                 currentLineIndex = 0;
                 correctCount = 0;
                 const userInput = document.getElementById('userInput');
+                const output = document.getElementById('output');
+                const previousWords = document.getElementById('previousWords');
                 userInput.style.display = 'none';
+                output.style.display = 'none';
+                previousWords.style.display = 'none';
                 document.getElementById('userInput').value = '';
             }
         }
@@ -201,7 +203,6 @@ function displayStoredWords() {
     const elapsedTimeInSeconds = Math.floor((new Date().getTime() - startTime) / 1000);
     const minutes = Math.floor(elapsedTimeInSeconds / 60);
     const seconds = elapsedTimeInSeconds % 60;
-
     const resultsHTML = storedWords.map(word => {
         return `<div class="${word.isCorrect ? 'correct' : 'incorrect'}">${word.hun} - ${word.eng}</div>`;
     }).join('');
@@ -243,6 +244,7 @@ function displayStoredWords() {
     resultWindow.document.body.innerHTML = `   
         <h1>Results</h1>
         <div class="accuracy-info">
+            Total Words: ${currentLineIndexStorage}
             <br>Accuracy: ${accuracyPercentage}%
             <br>Elapsed Time: ${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}
         </div>
@@ -298,7 +300,6 @@ function showSubMenu(menu) {
     const selectedMenuItem = document.querySelector(`#menuLinks li a[href="#"][onclick*="${menu}"]`);
 
     if (isSubmenuVisible) {
-        menuLinks.insertBefore(selectedMenuItem.parentElement, menuLinks.firstChild);
         const allMenuLinks = document.querySelectorAll('#menuLinks li');
         allMenuLinks.forEach(link => {
             if (link !== selectedMenuItem.parentElement) {

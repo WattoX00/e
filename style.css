@@ -274,10 +274,6 @@ a:hover::before {
         display: block;
     }
 
-    #footerArrow:hover {
-        animation: bounce 0.5s infinite alternate;
-    }
-
     #slidingMenu {
         left: -120%;
         width: 100%;

@@ -20,8 +20,8 @@
      <div id="slidingMenu">
          <ul id="menuLinks">
              <li><a href="#" onclick="showSubMenu('First')" data-text="Twenty-three_1_Chapter">Twenty-three_1_Chapter</a></li>
-             <li><a href="#" onclick="showSubMenu('Eleven')" data-text="11_Pioneer_intermediate">11_Pioneer_intermediate</a></li>
              <li><a href="#" onclick="showSubMenu('Ten')" data-text="Twenty-three_2_Chapter">Twenty-three_2_Chapter</a></li>
+             <li><a href="#" onclick="showSubMenu('Eleven')" data-text="11_Pioneer_intermediate">11_Pioneer_intermediate</a></li>
          </ul>
  
          <!-- Submenus -->
@@ -39,17 +39,16 @@
              <li><a href="#" data-text="2.a_2" onclick="selectDictionary('https://raw.githubusercontent.com/WattoX00/Eng_learning/main/dictionaries/11_Pioneer_intermediate/2a_2.txt')">2.a_2</a></li>
              <li><a href="#" data-text="2.b" onclick="selectDictionary('https://raw.githubusercontent.com/WattoX00/Eng_learning/main/dictionaries/11_Pioneer_intermediate/2b.txt')">2.b</a></li>
          </ul>
- 
+
          <ul id="TenSubmenu" class="submenu">
-             <li><a href="#" data-text="Weather_1" onclick="selectDictionary('https://raw.githubusercontent.com/WattoX00/Eng_learning/main/dictionaries/Twenty-three_Topics_For_Teenagers/weather_1.txt')">Weather_1</a></li>
-             <li><a href="#" data-text="Weather_2" onclick="selectDictionary('https://raw.githubusercontent.com/WattoX00/Eng_learning/main/dictionaries/Twenty-three_Topics_For_Teenagers/weather_2.txt')">Weather_2</a></li>
-         </ul>
+            <li><a href="#" data-text="Weather_1" onclick="selectDictionary('https://raw.githubusercontent.com/WattoX00/Eng_learning/main/dictionaries/Twenty-three_Topics_For_Teenagers/weather_1.txt')">Weather_1</a></li>
+            <li><a href="#" data-text="Weather_2" onclick="selectDictionary('https://raw.githubusercontent.com/WattoX00/Eng_learning/main/dictionaries/Twenty-three_Topics_For_Teenagers/weather_2.txt')">Weather_2</a></li>
+        </ul>
+        
          <a href="https://github.com/WattoX00/Eng_learning" class="credit" target="_blank" data-text="Github Repo" >Github Repo</a>
      </div>
      <header>    
          <div id="welcomeMessage">
-             <p>Welcome to English Learning!</p>
-             <p>Start your language journey with our interactive lessons.</p>
              <p>Click on the menu to explore available topics.</p>
          </div>
          <div id="wordCounter"></div>
@@ -62,9 +61,11 @@
          <a href="" id="showResultLink" onclick="displayStoredWords()">Check Your Result</a>
      </div>
  
-     <div id="footerContainer">
+     <div id="footerContainer" class="active">
          <div class="footer-section">
-             <p>Every Right Reserved &copy; 2024</p>
+            <p>Click On The Grey Box To Hide It</p>
+            <br>
+            <p>Every Right Reserved &copy; 2024</p>
          </div>
          <div class="footer-section">
              <p>Support Me:</p>
