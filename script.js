@@ -133,7 +133,7 @@ function readFile() {
             } else {
                 previousWordsDiv.classList.add('incorrect');
             }
-            document.getElementById('wordCounter').textContent = `${currentLineIndex}/${correctCount}`;
+            document.getElementById('wordCounter').textContent = `${currentLineIndex + 1}/${correctCount}`;
         }
 
         function formatPreviousWords(line) {
