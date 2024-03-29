@@ -49,7 +49,6 @@ document.addEventListener('DOMContentLoaded', function () {
     let timerInterval;
 
 function loadDictionary(dictionaryUrl) {
-    const fileInput = document.getElementById('fileInputSubmenu');
     fetch(dictionaryUrl)
         .then(response => response.text())
         .then(content => {
@@ -77,7 +76,6 @@ function loadDictionary(dictionaryUrl) {
             output.style.display = 'block'
             previousWords.style.display = 'block';
         })
-        .catch(error => console.error('Error loading dictionary:', error));toggleSlidingMenu()
 }
 
 function updateTimer() {
@@ -117,7 +115,7 @@ function readFile() {
             }
         }
 
-        function displayContent(content) {
+function displayContent(content) {
             const outputDiv = document.getElementById('output');
             const previousWordsDiv = document.getElementById('previousWords');
             const words = content.split('/');
@@ -265,69 +263,82 @@ function displayStoredWords() {
                 processNextLine();
             }
         }
+
+function selectDictionary(dictionaryUrl) {
+    loadDictionary(dictionaryUrl);
+    toggleSlidingMenu()
+}
+
+function loadFileList() {
+    const githubRepoUrl = 'https://api.github.com/repos/WattoX00/Eng_learning/contents/dictionaries';
+    
+    fetch(githubRepoUrl)
+    .then(response => response.json())
+    .then(data => {
+        const fileList = document.getElementById('fileList');
+        fileList.innerHTML = ''; // Clear previous list items
+        
+        data.forEach(item => {
+            if (item.type === 'dir') {
+                // Create a list item for each directory
+                const listItem = document.createElement('li');
+                const link = document.createElement('a');
+                link.href = '#' + item.name;
+                link.textContent = item.name;
+                listItem.appendChild(link);
+                fileList.appendChild(listItem);
+            }
+        });
+        
+        // Add event listener to dynamically created links
+        fileList.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                const selectedDirectory = link.textContent;
+                loadTextFiles(selectedDirectory);
+            });
+        });
+    })
+}
+
+function loadTextFiles(directory) {
+    const githubRepoUrl = `https://api.github.com/repos/WattoX00/Eng_learning/contents/dictionaries/${directory}`;
+    
+    fetch(githubRepoUrl)
+    .then(response => response.json())
+    .then(data => {
+        const textFileList = document.getElementById('textFileList');
+        textFileList.innerHTML = ''; // Clear previous text file list items
+        
+        data.forEach(item => {
+            if (item.type === 'file' && item.name.endsWith('.txt')) {
+                // Create a list item for each text file
+                const listItem = document.createElement('li');
+                const link = document.createElement('a');
+                link.textContent = item.name;
+                listItem.appendChild(link);
+                textFileList.appendChild(listItem);
+                
+                // Add onclick attribute to call selectDictionary function
+                link.setAttribute('onclick', `selectDictionary('${item.download_url}')`);
+            }
+        });
+        
+        // Show the text files container
+        document.getElementById('textFilesContainer').style.display = 'block';
+    })
+    .catch(error => console.error('Error loading text files:', error));
+}
+
 function toggleSlidingMenu() {
     const slidingMenu = document.getElementById('slidingMenu');
     const menuToggle = document.getElementById('menuToggle');
-    const menuLinks = document.getElementById('menuLinks');
-
-    if (slidingMenu.style.left === "0px") {
-        slidingMenu.style.left = "-120%";
-        menuToggle.innerHTML = "☰ Menu";
-
-        const allMenuLinks = document.querySelectorAll('#menuLinks li');
-        allMenuLinks.forEach(link => {
-            link.classList.remove('hidden-menu');
-        });
-    } else {
-        const allSubmenus = document.querySelectorAll('.submenu');
-    allSubmenus.forEach(submenu => {
-        submenu.classList.remove('show')
-    });
-        slidingMenu.style.left = "0px";
-        menuToggle.innerHTML = "✕ Close";
+    menuToggle.innerHTML = "☰ Menu";
+    slidingMenu.style.left = "0px";
+    
+    slidingMenu.style.display = slidingMenu.style.display === 'none' ? 'block' : 'none';
+    if (slidingMenu.style.display === 'block') {
+        menuToggle.innerHTML = "X Close";
+        loadFileList();
     }
-}
-function showSubMenu(menu) {
-    const nonSelectedMenus = document.querySelectorAll('.submenu:not(#' + menu + 'Submenu)');
-    nonSelectedMenus.forEach(menu => {
-        menu.classList.add('hidden-menu');
-    });
-
-    const selectedSubmenu = document.getElementById(`${menu}Submenu`);
-    const isSubmenuVisible = selectedSubmenu.classList.toggle('show', !selectedSubmenu.classList.contains('show'));
-
-    const menuLinks = document.getElementById('menuLinks');
-    const selectedMenuItem = document.querySelector(`#menuLinks li a[href="#"][onclick*="${menu}"]`);
-
-    if (isSubmenuVisible) {
-        const allMenuLinks = document.querySelectorAll('#menuLinks li');
-        allMenuLinks.forEach(link => {
-            if (link !== selectedMenuItem.parentElement) {
-                link.classList.add('hidden-menu');
-            }
-        });
-    } else {
-        const allMenuLinks = document.querySelectorAll('#menuLinks li');
-        allMenuLinks.forEach(link => {
-            link.classList.remove('hidden-menu');
-        });
-    }
-}
-
-function hideAllSubmenus() {
-    const allSubmenus = document.querySelectorAll('.submenu');
-    allSubmenus.forEach(submenu => {
-        submenu.classList.remove('show');
-    });
-
-    const allMenuLinks = document.querySelectorAll('#menuLinks li');
-    allMenuLinks.forEach(link => {
-        link.classList.remove('hidden-menu');
-    });
-}
-
-
-function selectDictionary(dictionaryUrl) {
-    hideAllSubmenus();
-    loadDictionary(dictionaryUrl);
+    document.getElementById('textFilesContainer').style.display = 'none';
 }
