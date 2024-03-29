@@ -224,32 +224,6 @@ a:hover::before {
     font-size: 15px;
 }
 
-.submenu {
-    display: none;
-    list-style: none;
-    padding: 0;
-    margin-top: 10px;
-    transition: all 0.3s ease;
-    opacity: 0;
-    max-height: 0;
-    overflow: hidden;
-}
-
-.submenu a {
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.submenu.show {
-    display: block;
-    opacity: 1;
-    max-height: 500px;
-}
-
-.submenu.show li {
-    margin: 2vw 0;
-}
-
 .hidden-menu {
     display: none;
 }
@@ -275,8 +249,6 @@ a:hover::before {
     body:hover #footerContainer {
         display: block;
     }
-
-
 
     #output {
         font-size: 20px;
@@ -323,13 +295,8 @@ a:hover::before {
         padding: 5%;
         font-size: 2vw;
     }
-    #menuLinks {
-        margin: 40% 0;
-    }
     #footerContainer {
         padding: 40px;
     }
-    .submenu.show li {
-        margin: 1vw 0;
-    }
+
 }
