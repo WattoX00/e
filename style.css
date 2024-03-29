@@ -162,6 +162,7 @@ header {
 #menuToggle:hover {
     background-color: #fff;
     color: #000000;
+    transition: 1s ease;
 }
 
 #slidingMenu {
@@ -175,9 +176,9 @@ header {
     transition: 1s ease;
     animation: colorTransition 0.2s steps(100,end) forwards;
 }
-#fileList {
+#fileList li{
     list-style: none;
-    padding: 10;
+    padding: 10px;
     margin-top: 40px;
     z-index: 100;
 }
@@ -187,6 +188,11 @@ header {
 }
 #textFilesContainer li{
     margin: 0.7 vw;
+    padding: 5px;
+}
+#slidingMenu a:hover {
+    transition: 0.5s ease;
+    color: #f00;
 }
 
 a {
@@ -234,7 +240,9 @@ a:hover::before {
         align-items: center;
         padding: 20px 0;
     }
-
+    #fileList li {
+    margin-top: 30px;
+    }
     .footer-section {
         width: 100%;
         text-align: center;
