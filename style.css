@@ -204,19 +204,6 @@ a {
     overflow: hidden;
 }
 
-a:hover::before {
-    content: attr(data-text);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 100%;
-    white-space: nowrap;
-    overflow: hidden;
-    color: #f00;
-    animation: colorTransition 1s steps(100,end) forwards;
-}
-
 @keyframes colorTransition {
     to {
         width: 100%;
