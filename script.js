@@ -201,19 +201,22 @@ function displayStoredWords() {
     const elapsedTimeInSeconds = Math.floor((new Date().getTime() - startTime) / 1000);
     const minutes = Math.floor(elapsedTimeInSeconds / 60);
     const seconds = elapsedTimeInSeconds % 60;
-    const resultsHTML = storedWords.map(word => {
-        return `<div class="${word.isCorrect ? 'correct' : 'incorrect'}">${word.hun} - ${word.eng}</div>`;
-    }).join('');
+    let resultsHTML = '';
+    storedWords.forEach((word, index) => {
+        const wordNumber = index + 1;
+        const wordClass = word.isCorrect ? 'correct' : 'incorrect';
+        resultsHTML += `<div class="${wordClass}">${wordNumber}. ${word.hun} - ${word.eng}</div>`;
+    });
 
     const resultWindow = window.open('');
     resultWindow.document.head.innerHTML = `
-    <link rel="icon" type="image/x-icon" href="uk.png" />
+    <link rel="icon" type="image/x-icon" href="uk.png"/>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Result</title>
         <style>
             body {
-                background: #000;
+                background: #34495e;
                 color: #fff;
                 font-family: Arial, sans-serif;
                 text-align: center;
