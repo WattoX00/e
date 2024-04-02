@@ -151,16 +151,16 @@ header {
     padding: 10px;
     margin-top: 15px;
     margin-left: 15px;
-    color: #fff;
+    color: #000;
     z-index: 11;
-    background: #000000;
+    background: #ffffff00;
     border: none;
     width: max-content;
     height: max-content;
 }
 
 #menuToggle:hover {
-    background-color: #fff;
+    background-color: #ffffff;
     color: #000000;
     transition: 1s ease;
 }

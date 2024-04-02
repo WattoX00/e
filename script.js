@@ -9,6 +9,10 @@ document.addEventListener('DOMContentLoaded', function () {
         event.preventDefault();
         displayStoredWords();
     });
+    const menuToggle = document.getElementById('menuToggle');
+    menuToggle.addEventListener('mouseenter', function () {
+        toggleSlidingMenu()
+    });
     const footerContainer = document.getElementById('footerContainer');
     const footerArrow = document.getElementById('footerArrow');
     let isFooterVisible = true;
@@ -279,11 +283,10 @@ function loadFileList() {
     .then(response => response.json())
     .then(data => {
         const fileList = document.getElementById('fileList');
-        fileList.innerHTML = ''; // Clear previous list items
+        fileList.innerHTML = '';
         
         data.forEach(item => {
             if (item.type === 'dir') {
-                // Create a list item for each directory
                 const listItem = document.createElement('li');
                 const link = document.createElement('a');
                 link.href = '#' + item.name;
@@ -293,7 +296,6 @@ function loadFileList() {
             }
         });
         
-        // Add event listener to dynamically created links
         fileList.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 const selectedDirectory = link.textContent;
@@ -310,23 +312,19 @@ function loadTextFiles(directory) {
     .then(response => response.json())
     .then(data => {
         const textFileList = document.getElementById('textFileList');
-        textFileList.innerHTML = ''; // Clear previous text file list items
-        
+        textFileList.innerHTML = '';
+
         data.forEach(item => {
             if (item.type === 'file' && item.name.endsWith('.txt')) {
-                // Create a list item for each text file
                 const listItem = document.createElement('li');
                 const link = document.createElement('a');
                 link.textContent = item.name;
                 listItem.appendChild(link);
                 textFileList.appendChild(listItem);
-                
-                // Add onclick attribute to call selectDictionary function
                 link.setAttribute('onclick', `selectDictionary('${item.download_url}')`);
             }
         });
         
-        // Show the text files container
         document.getElementById('textFilesContainer').style.display = 'block';
     })
     .catch(error => console.error('Error loading text files:', error));
