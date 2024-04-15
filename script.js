@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
         displayStoredWords();
     });
     const menuToggle = document.getElementById('menuToggle');
-    menuToggle.addEventListener('mouseenter', function () {
+    menuToggle.addEventListener('click', function () {
         toggleSlidingMenu()
     });
     const footerContainer = document.getElementById('footerContainer');
