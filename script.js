@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
     menuToggle.addEventListener('mouseenter', function () {
         toggleSlidingMenu()
     });
+    
     const footerContainer = document.getElementById('footerContainer');
     const footerArrow = document.getElementById('footerArrow');
     let isFooterVisible = true;
