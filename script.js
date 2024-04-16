@@ -9,10 +9,6 @@ document.addEventListener('DOMContentLoaded', function () {
         event.preventDefault();
         displayStoredWords();
     });
-    const menuToggle = document.getElementById('menuToggle');
-    menuToggle.addEventListener('click', function () {
-        toggleSlidingMenu()
-    });
     
     const footerContainer = document.getElementById('footerContainer');
     const footerArrow = document.getElementById('footerArrow');
