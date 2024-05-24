@@ -9,7 +9,16 @@ document.addEventListener('DOMContentLoaded', function () {
         event.preventDefault();
         displayStoredWords();
     });
-    
+    const toggleThemeButton = document.getElementById('toggleThemeButton');
+
+    toggleThemeButton.addEventListener('click', () => {
+        document.body.classList.toggle('dark-theme');
+        if (document.body.classList.contains('dark-theme')) {
+            toggleThemeButton.textContent = '☀️';
+        } else {
+            toggleThemeButton.textContent = '🌙';
+        }
+    });
     const footerContainer = document.getElementById('footerContainer');
     const footerArrow = document.getElementById('footerArrow');
     let isFooterVisible = true;
@@ -217,7 +226,7 @@ function displayStoredWords() {
     <title>Result</title>
         <style>
             body {
-                background: #34495e;
+                background: rgb(36, 39, 41);
                 color: #fff;
                 font-family: Arial, sans-serif;
                 text-align: center;

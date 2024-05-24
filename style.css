@@ -4,6 +4,57 @@
     Author: WattoX00
     Date:   25/02/2024
 */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #000000;
+    --button-bg: #007bff;
+    --button-text: #ffffff;
+    --menu-bg: #ffffff;
+    --menu-text: #000000;
+    --footer-bg: #ffffff;
+    --footer-text: #000000;
+    --e-bg: #fafafa;
+    --e-text: #000;
+    --i-text: #fff;
+    --i-bg: #444;
+}
+
+body.dark-theme {
+    --bg-color: rgb(36, 39, 41);
+    --text-color: #fff;
+    --button-bg: #333;
+    --button-text: #fff;
+    --menu-bg: rgb(36, 39, 41);
+    --menu-text: #fff;
+    --footer-bg: rgb(36, 39, 41);
+    --footer-text: #fff;
+    --e-bg: #333;
+    --e-text: #fff;
+    --i-text: #444;
+    --i-bg: #fff;
+}
+
+#toggleThemeButton {
+    position: absolute;
+    z-index: 11;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    border: none;
+    color: var(--text-color);
+    padding: 10px 20px;
+    margin: 10px;
+    background-color: var(--bg-color);
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+#toggleThemeButton:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
 body {
     display: grid;
     grid-template-rows: 1fr 3fr;
@@ -11,7 +62,7 @@ body {
     height: 100vh;
     margin: 0;
     padding: 0;
-    background: #2c3e50;
+    background-color: var(--bg-color);
     overflow-x: hidden;
     position: relative;
     min-height: 100vh;
@@ -23,10 +74,10 @@ header {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    background-color: #34495e;
-    color: #ecf0f1;
+    background-color: var(--footer-bg);
+    color: var(--footer-text);
     position: relative;
-    border-bottom: 3px solid #fff;
+    border-bottom: 3px solid var(--footer-text);
 }
 #welcomeMessage {
     font-size: 2vw;
@@ -36,8 +87,8 @@ header {
 #footerContainer {
     bottom: 0;
     left: 0;
-    background-color: #34495e;
-    color: #ecf0f1;
+    background-color: var(--footer-bg);
+    color: var(--footer-text);
     text-align: center;
     transition: transform 0.3s ease;
     transform: translateY(100%);
@@ -59,7 +110,7 @@ header {
     left: 50%;
     transform: translateX(-50%);
     font-size: 20px;
-    color: #fff;
+    color: var(--footer-text);
     cursor: pointer;
     transition: opacity 0.3s ease;
 }
@@ -103,16 +154,16 @@ header {
     white-space: pre-line;
     font-size: 3vw;
     font-weight: bold;
-    color: #fff;
+    color: var(--menu-text);
 }
 
 #userInput {
-    grid-row: 2;
-    grid-column: 2 / span 1;
-    margin-top: 20px;
     font-size: 2.5vw;
     display: none;
     margin: 10px auto;
+    background-color: var(--e-bg);
+    color: var(--e-text);
+    border: none;
 }
 
 #showResultLink {
@@ -123,15 +174,16 @@ header {
     padding: 5px;
     font-size: 14px;
     text-decoration: none;
-    color: #fff;
-    border: 1px solid #fff;
+    color: var(--text-color);
+    border: 1px solid var(--text-color);
     border-radius: 5px;
     cursor: pointer;
 }
 
 #showResultLink:hover {
-    background-color: #fff;
-    color: #000;
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: 1s ease;
 }
 
 .correct {
@@ -151,17 +203,16 @@ header {
     padding: 10px;
     margin-top: 15px;
     margin-left: 15px;
-    color: #ffffff;
     z-index: 11;
-    background: #ffffff00;
+    color: var(--menu-text);
     border: none;
     width: max-content;
     height: max-content;
 }
 
 #menuToggle:hover {
-    background-color: #ffffff;
-    color: #000000;
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: 1s ease;
 }
 
@@ -170,8 +221,8 @@ header {
     top: 0;
     width: 0;
     height: 100%;
-    background-color: #2c3e50;
-    color: #ecf0f1;
+    background-color: var(--menu-bg);
+    color: var(--menu-text);
     padding: 20px;
     z-index: 10;
     transition: 1s ease;
@@ -194,13 +245,15 @@ header {
 }
 #slidingMenu a:hover {
     transition: 0.5s ease;
-    color: #f39c12;
+    color: var(--i-bg);
+    background-color: var(--i-text);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 1);
 }
 
 a {
     text-decoration: none;
     font-size: 2vw;
-    color: #fff;
+    color: var(--menu-text);
     position: relative;
     display: inline-block;
     overflow: hidden;
@@ -215,7 +268,6 @@ a {
 .credit {
     position: fixed;
     bottom: 10px;
-    color: #fff;
     font-size: 15px;
 }
 
