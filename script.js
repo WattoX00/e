@@ -9,6 +9,11 @@ document.addEventListener('DOMContentLoaded', function () {
         event.preventDefault();
         displayStoredWords();
     });
+    var elements = document.querySelectorAll('.fade-target');
+    
+    elements.forEach(function(element) {
+      element.classList.add('fade-in');
+    });
     const toggleThemeButton = document.getElementById('toggleThemeButton');
 
     toggleThemeButton.addEventListener('click', () => {
