@@ -74,8 +74,6 @@ function loadDictionary(dictionaryUrl) {
             startTime = new Date().getTime();
             timerInterval = setInterval(updateTimer, 1000);
 
-            const welcomeMessage = document.getElementById('welcomeMessage');
-            welcomeMessage.style.display = 'none';
             const userInput = document.getElementById('userInput');
             const outputContainer = document.getElementById('outputContainer');
             const showResultLink = document.getElementById('showResultLink');
@@ -282,9 +280,10 @@ function displayStoredWords() {
             }
         }
 
-function selectDictionary(dictionaryUrl) {
+function selectDictionary(dictionaryUrl,fileName) {
     loadDictionary(dictionaryUrl);
     toggleSlidingMenu()
+    welcomeMessage.innerHTML = directoryName+": "+fileName;
 }
 
 function loadFileList() {
@@ -311,6 +310,7 @@ function loadFileList() {
             link.addEventListener('click', () => {
                 const selectedDirectory = link.textContent;
                 loadTextFiles(selectedDirectory);
+                directoryName = selectedDirectory
             });
         });
     })
@@ -330,9 +330,14 @@ function loadTextFiles(directory) {
                 const listItem = document.createElement('li');
                 const link = document.createElement('a');
                 link.textContent = item.name;
+
+                link.onclick = function(event) {
+                    event.preventDefault();
+                    selectDictionary(item.download_url,item.name);
+                };
+
                 listItem.appendChild(link);
                 textFileList.appendChild(listItem);
-                link.setAttribute('onclick', `selectDictionary('${item.download_url}')`);
             }
         });
         
