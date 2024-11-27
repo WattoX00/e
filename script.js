@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const footerArrow = document.getElementById('footerArrow');
     let isFooterVisible = true;
 
-    footerArrow.addEventListener('mouseenter', function () {
+    footerArrow.addEventListener('click', function () {
         isFooterVisible = !isFooterVisible;
         toggleFooterVisibility();
     });
