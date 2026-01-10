@@ -2,7 +2,15 @@
 
 English Learning Website
 
-## Usage:
+# Dictionaries
+
+You can find the source of the dictionaries here:  
+[WattoX00/Eng_learning](https://github.com/WattoX00/Eng_learning)
+
+If you find a bug or a typo, feel free to open an issue:  
+[Open an issue](https://github.com/WattoX00/Eng_learning/issues)
+
+## Usage
 
 1. **Navigation:**
    - The website features a menu located at the top left corner. Click on it to access the available options.
@@ -16,7 +24,7 @@ English Learning Website
 4. **Checking Results:**
    - After completing all translations, a 'Check Result' button will appear. Click it to view your performance in a new tab.
 
-## Support:
+## Support
 
 If you find this project helpful and would like to support its development, you can make a donation via the following methods:
 
@@ -26,15 +34,7 @@ Your contribution helps in maintaining and improving the website. Thank you for 
 
 If you encounter any issues or have questions, please feel free to reach out by opening an issue on our [GitHub repository](https://github.com/WattoX00/e).
 
----
-
-Contributors:
-
-- [Wattox00](https://github.com/WattoX00)
-
----
-
-License:
+## License
 
 This project is licensed under the [GNU General Public License v3.0
 ](https://github.com/WattoX00/e/blob/main/LICENSE) License.
