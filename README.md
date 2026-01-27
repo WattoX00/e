@@ -24,17 +24,21 @@ If you find a bug or a typo, feel free to open an issue:
 4. **Checking Results:**
    - After completing all translations, a 'Check Result' button will appear. Click it to view your performance in a new tab.
 
-## Support
+## ❤️ Support
 
-If you find this project helpful and would like to support its development, you can make a donation via the following methods:
+If this project saved you time, taught you something, or made your day a little easier,
+you can support its development here:
 
-- [PayPal](https://www.paypal.com/paypalme/wattox)
+👉 **[Buy me a coffee via PayPal](https://www.paypal.com/paypalme/wattox)**
 
-Your contribution helps in maintaining and improving the website. Thank you for your support!
+Your support helps keep the project:
+- Actively maintained
+- Continuously improved
+- Free and open source
 
-If you encounter any issues or have questions, please feel free to reach out by opening an issue on our [GitHub repository](https://github.com/WattoX00/e).
+Thanks for being part of the community 🤝
 
-## License
+## 📄 License
 
-This project is licensed under the [GNU General Public License v3.0
-](https://github.com/WattoX00/e/blob/main/LICENSE) License.
+This project is licensed under the **GNU General Public License v3.0**.  
+See the [LICENSE](LICENSE) file for full details.
