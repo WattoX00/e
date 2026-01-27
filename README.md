@@ -1,8 +1,14 @@
 # [Website](https://wattox00.github.io/e)
 
+
+[![Website](https://img.shields.io/badge/website-online-success?style=for-the-badge&logo=github)](https://wattox00.github.io/e)
+[![Dictionary](https://img.shields.io/badge/website-online-success?style=for-the-badge)](https://github.com/WattoX00/Eng_learning)
+![Build](https://img.shields.io/github/actions/workflow/status/wattox00/todol/publish.yml?style=for-the-badge)
+[![License](https://img.shields.io/github/license/wattox00/todol?style=for-the-badge)](https://github.com/WattoX00/todol/blob/main/LICENSE)
+
 English Learning Website
 
-# Dictionaries
+#  Dictionaries
 
 You can find the source of the dictionaries here:  
 [WattoX00/Eng_learning](https://github.com/WattoX00/Eng_learning)
