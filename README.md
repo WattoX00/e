@@ -8,7 +8,7 @@
 
 English Learning Website
 
-#  Dictionaries
+# 📘 Dictionaries
 
 You can find the source of the dictionaries here:  
 [WattoX00/Eng_learning](https://github.com/WattoX00/Eng_learning)
@@ -16,7 +16,7 @@ You can find the source of the dictionaries here:
 If you find a bug or a typo, feel free to open an issue:  
 [Open an issue](https://github.com/WattoX00/Eng_learning/issues)
 
-## Usage
+## 🚀 Usage
 
 1. **Navigation:**
    - The website features a menu located at the top left corner. Click on it to access the available options.
