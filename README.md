@@ -1,6 +1,5 @@
 # [GLYPH](https://wattox00.github.io/e)
 
-
 [![Website](https://img.shields.io/badge/website-online-success?style=for-the-badge&logo=github)](https://wattox00.github.io/e)
 [![Dictionary](https://img.shields.io/badge/dictionary-view-blue?style=for-the-badge)](https://github.com/wattox00/eng_learning)
 ![Build](https://img.shields.io/github/actions/workflow/status/wattox00/todol/publish.yml?style=for-the-badge)
